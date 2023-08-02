@@ -38,6 +38,8 @@ namespace Database
             listQuestions.Add(new Question("Who has the earliest birthday?", AscendBirthday));
             listQuestions.Add(new Question("Who is the tallest?", DescendHeight));
             listQuestions.Add(new Question("Who is the shortest", AscendHeight));
+            listQuestions.Add(new Question("Who has the most channel views", DescendViews));
+            listQuestions.Add(new Question("Who has the least channel views", AscendViews));
         }
 
         public static List<HololiveMember> DescendBirthday(List<HololiveMember> choicesList)
@@ -61,6 +63,18 @@ namespace Database
         public static List<HololiveMember> AscendHeight(List<HololiveMember> choicesList)
         {
             choicesList.Sort((x, y) => x.height - y.height);
+            return choicesList;
+        }
+
+        public static List<HololiveMember> DescendViews(List<HololiveMember> choicesList)
+        {
+            choicesList.Sort((x, y) => y.views - x.views);
+            return choicesList;
+        }
+
+        public static List<HololiveMember> AscendViews(List<HololiveMember> choicesList)
+        {
+            choicesList.Sort((x, y) => x.views - y.views);
             return choicesList;
         }
 

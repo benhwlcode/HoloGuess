@@ -15,15 +15,16 @@ namespace HoloGuessForm
         List<HololiveMember> listChoices = new List<HololiveMember>();
         int correct;
         int wrong;
+        int skip;
 
         public Form1()
         {
             InitializeComponent();
             correct = 0;
             wrong = 0;
+            skip = -1;
 
-            tbQuestion.Text = "Welcome to the Hololive Guessing Game";
-
+            tbQuestion.Text = "Welcome to the Hololive Guessing Game.";
 
             lblCorrect.Text = correct.ToString();
             lblWrong.Text = wrong.ToString();
@@ -34,14 +35,8 @@ namespace HoloGuessForm
             btnChoice4.Enabled = false;
         }
 
-        private void btnNext_Click(object sender, EventArgs e)
+        private void NextQuestion()
         {
-            btnChoice1.Enabled = true;
-            btnChoice2.Enabled = true;
-            btnChoice3.Enabled = true;
-            btnChoice4.Enabled = true;
-
-
             EmptyList(listChoices, multiChoice1, multiChoice2, multiChoice3, multiChoice4);
 
             DetermineQuestion(out currentQuestion);
@@ -59,8 +54,20 @@ namespace HoloGuessForm
             btnChoice3.Text = multiChoice3.name;
             btnChoice4.Text = multiChoice4.name;
 
-            btnNext.Enabled = false;
+        }
 
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+            btnStart.Text = "Skip";
+
+            btnChoice1.Enabled = true;
+            btnChoice2.Enabled = true;
+            btnChoice3.Enabled = true;
+            btnChoice4.Enabled = true;
+
+            lblSkip.Text = (++skip).ToString();
+
+            NextQuestion();
 
         }
 
@@ -79,11 +86,7 @@ namespace HoloGuessForm
                 lblWrong.Text = (++wrong).ToString();
             }
 
-            btnChoice1.Enabled = false;
-            btnChoice2.Enabled = false;
-            btnChoice3.Enabled = false;
-            btnChoice4.Enabled = false;
-            btnNext.Enabled = true;
+            NextQuestion();
         }
 
         private void btnChoice2_Click(object sender, EventArgs e)
@@ -101,11 +104,7 @@ namespace HoloGuessForm
                 lblWrong.Text = (++wrong).ToString();
             }
 
-            btnChoice1.Enabled = false;
-            btnChoice2.Enabled = false;
-            btnChoice3.Enabled = false;
-            btnChoice4.Enabled = false;
-            btnNext.Enabled = true;
+            NextQuestion();
 
         }
 
@@ -124,11 +123,7 @@ namespace HoloGuessForm
                 lblWrong.Text = (++wrong).ToString();
             }
 
-            btnChoice1.Enabled = false;
-            btnChoice2.Enabled = false;
-            btnChoice3.Enabled = false;
-            btnChoice4.Enabled = false;
-            btnNext.Enabled = true;
+            NextQuestion();
 
         }
 
@@ -147,11 +142,8 @@ namespace HoloGuessForm
                 lblWrong.Text = (++wrong).ToString();
             }
 
-            btnChoice1.Enabled = false;
-            btnChoice2.Enabled = false;
-            btnChoice3.Enabled = false;
-            btnChoice4.Enabled = false;
-            btnNext.Enabled = true;
+            NextQuestion();
+
         }
 
         private static HololiveMember AssignChoices(

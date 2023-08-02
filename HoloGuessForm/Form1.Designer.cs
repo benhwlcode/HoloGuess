@@ -33,14 +33,16 @@
             btnChoice3 = new Button();
             btnChoice4 = new Button();
             label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
+            _lblCorrect = new Label();
+            _lblWrong = new Label();
             lblCorrect = new Label();
             lblWrong = new Label();
             label4 = new Label();
             tbQuestion = new TextBox();
             tbResult = new TextBox();
-            btnNext = new Button();
+            btnStart = new Button();
+            _lblSkip = new Label();
+            lblSkip = new Label();
             SuspendLayout();
             // 
             // btnChoice1
@@ -88,39 +90,41 @@
             label1.TabIndex = 4;
             label1.Text = "POINTS";
             // 
-            // label2
+            // _lblCorrect
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(12, 24);
-            label2.Name = "label2";
-            label2.Size = new Size(49, 15);
-            label2.TabIndex = 5;
-            label2.Text = "Correct:";
+            _lblCorrect.AutoSize = true;
+            _lblCorrect.Location = new Point(12, 24);
+            _lblCorrect.Name = "_lblCorrect";
+            _lblCorrect.Size = new Size(49, 15);
+            _lblCorrect.TabIndex = 5;
+            _lblCorrect.Text = "Correct:";
             // 
-            // label3
+            // _lblWrong
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(12, 39);
-            label3.Name = "label3";
-            label3.Size = new Size(46, 15);
-            label3.TabIndex = 6;
-            label3.Text = "Wrong:";
+            _lblWrong.AutoSize = true;
+            _lblWrong.Location = new Point(86, 24);
+            _lblWrong.Name = "_lblWrong";
+            _lblWrong.Size = new Size(46, 15);
+            _lblWrong.TabIndex = 6;
+            _lblWrong.Text = "Wrong:";
             // 
             // lblCorrect
             // 
             lblCorrect.AutoSize = true;
-            lblCorrect.Location = new Point(67, 24);
+            lblCorrect.Location = new Point(62, 24);
             lblCorrect.Name = "lblCorrect";
-            lblCorrect.Size = new Size(0, 15);
+            lblCorrect.Size = new Size(13, 15);
             lblCorrect.TabIndex = 7;
+            lblCorrect.Text = "0";
             // 
             // lblWrong
             // 
             lblWrong.AutoSize = true;
-            lblWrong.Location = new Point(67, 39);
+            lblWrong.Location = new Point(128, 24);
             lblWrong.Name = "lblWrong";
-            lblWrong.Size = new Size(0, 15);
+            lblWrong.Size = new Size(13, 15);
             lblWrong.TabIndex = 8;
+            lblWrong.Text = "0";
             // 
             // label4
             // 
@@ -147,29 +151,49 @@
             tbResult.Size = new Size(344, 23);
             tbResult.TabIndex = 11;
             // 
-            // btnNext
+            // btnStart
             // 
-            btnNext.Location = new Point(144, 174);
-            btnNext.Name = "btnNext";
-            btnNext.Size = new Size(80, 40);
-            btnNext.TabIndex = 12;
-            btnNext.Text = "Next";
-            btnNext.UseVisualStyleBackColor = true;
-            btnNext.Click += btnNext_Click;
+            btnStart.Location = new Point(144, 174);
+            btnStart.Name = "btnStart";
+            btnStart.Size = new Size(80, 40);
+            btnStart.TabIndex = 12;
+            btnStart.Text = "Start";
+            btnStart.UseVisualStyleBackColor = true;
+            btnStart.Click += btnStart_Click;
+            // 
+            // _lblSkip
+            // 
+            _lblSkip.AutoSize = true;
+            _lblSkip.Location = new Point(157, 24);
+            _lblSkip.Name = "_lblSkip";
+            _lblSkip.Size = new Size(32, 15);
+            _lblSkip.TabIndex = 13;
+            _lblSkip.Text = "Skip:";
+            // 
+            // lblSkip
+            // 
+            lblSkip.AutoSize = true;
+            lblSkip.Location = new Point(185, 24);
+            lblSkip.Name = "lblSkip";
+            lblSkip.Size = new Size(13, 15);
+            lblSkip.TabIndex = 14;
+            lblSkip.Text = "0";
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(368, 351);
-            Controls.Add(btnNext);
+            Controls.Add(lblSkip);
+            Controls.Add(_lblSkip);
+            Controls.Add(btnStart);
             Controls.Add(tbResult);
             Controls.Add(tbQuestion);
             Controls.Add(label4);
             Controls.Add(lblWrong);
             Controls.Add(lblCorrect);
-            Controls.Add(label3);
-            Controls.Add(label2);
+            Controls.Add(_lblWrong);
+            Controls.Add(_lblCorrect);
             Controls.Add(label1);
             Controls.Add(btnChoice4);
             Controls.Add(btnChoice3);
@@ -188,13 +212,15 @@
         private Button btnChoice3;
         private Button btnChoice4;
         private Label label1;
-        private Label label2;
-        private Label label3;
+        private Label _lblCorrect;
+        private Label _lblWrong;
         private Label lblCorrect;
         private Label lblWrong;
         private Label label4;
         private TextBox tbQuestion;
         private TextBox tbResult;
-        private Button btnNext;
+        private Button btnStart;
+        private Label _lblSkip;
+        private Label lblSkip;
     }
 }
